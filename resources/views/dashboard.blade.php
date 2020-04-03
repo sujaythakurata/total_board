@@ -47,7 +47,7 @@
         const shiftqtyurl = '{{url("api/shiftstatus")}}';
         const masterurl = '{{ url("api/masterdetails") }}';
         function currtime() {
-                let curr_time = moment().format('hh:mm:ss');
+                let curr_time = moment().format('HH:mm:ss');
                 $('#currentTime').text(curr_time);
         }
         setInterval(currtime, 1000);
@@ -64,10 +64,11 @@
     <script src="{{asset('js/widget/chart-js-master/dist/Chart.bundle.js')}}" type="text/javascript"></script>
      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0"></script>
     <script src="{{asset('js/common/myforms.js')}}"></script>
+    <script src="{{asset('js/Controller/header/time.js')}}"></script>
     <script src="{{asset('js/Controller/header/header.js')}}"></script>
     <script src="{{asset('js/Controller/header/produceqty.js')}}"></script>
     <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>s
-    <script src="{{asset('js/Controller/header/time.js')}}"></script>
+    <script src="{{asset('js/Controller/dashboardgraph/todayProduction.js')}}"></script>
     <script src="{{asset('js/Controller/master.js')}}"></script>
 
 

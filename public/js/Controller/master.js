@@ -5,6 +5,7 @@ function update(data, status, xhr) {
 		updateheader(data);
 		updateproduceqty(data);
 		shiftwiseprod(data);
+		renderProductionOfBatch(data);
 	}
 }
 
