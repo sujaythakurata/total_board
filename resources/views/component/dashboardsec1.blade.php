@@ -78,13 +78,13 @@
                                 <li class="list-group-item bgl-dblack dash-small-box">
                                     <p class="h-16 cl-white">Shift</p>
                                     <div class="comman-btn-group btn-group btn-group-sm btn-group-toggle mt5">
-                                        <label class="btn btn-light">
-                                            <input type="radio" disabled name="selectedShift" value="1" autocomplete="off">1
+                                        <label class="btn btn-light enb" >
+                                            <input type="radio" disabled name="selectedShift" value="1" autocomplete="off" checked>1
                                         </label>
-                                        <label class="btn btn-light">
+                                        <label class="btn btn-light enb" >
                                             <input type="radio" disabled name="selectedShift" value="2" autocomplete="off">2
                                         </label>
-                                        <label class="btn btn-light">
+                                        <label class="btn btn-light enb" >
                                             <input type="radio" disabled name="selectedShift" value="3" autocomplete="off">3
                                         </label>
                                     </div>

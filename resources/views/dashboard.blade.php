@@ -13,6 +13,7 @@
     <link href="{{asset('js/widget/datepicker/datepicker.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
 	@include('include/header')
@@ -39,11 +40,12 @@
         </footer>
     </div>
     <script type="text/javascript">
-        let batch_id = 0;
+        const batch_id = 0;
         const URL = '{{ url("api/batchdetails")}}';//this is the api of batchdetails
         const STATUSURL = '{{ url("api/batchstatus")}}'; //this is the api of batchstatu
         const ProdQtyurl = '{{ url("api/prodstatus") }}';
-        let shiftqtyurl = '{{url("api/shiftstatus")}}';
+        const shiftqtyurl = '{{url("api/shiftstatus")}}';
+        const masterurl = '{{ url("api/masterdetails") }}';
 
     </script>
     <!-- <script src="js/jquery.min.js"></script> -->
@@ -60,8 +62,11 @@
     <script src="{{asset('js/common/myforms.js')}}"></script>
     <script src="{{asset('js/Controller/header/header.js')}}"></script>
     <script src="{{asset('js/Controller/header/produceqty.js')}}"></script>
-        <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>
-    <script src="{{asset('js/Controller/statuschecker/status.js')}}"></script>
+    <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>
+        <script src="{{asset('js/Controller/header/time.js')}}"></script>
+    <script src="{{asset('js/Controller/master.js')}}"></script>
+
+
 
 
 </body>

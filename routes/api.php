@@ -22,3 +22,4 @@ Route::get('batchdetails', 'ActiveBatchController@Getdetails');
 Route::get('batchstatus', 'ActiveBatchController@Getstatus');
 Route::get('prodstatus', 'ProductionController@Getprodstatus');
 Route::get('shiftstatus', 'ShiftProductionController@Getshiftstatus');
+Route::get('masterdetails', 'ActiveBatchController@Getmasterdetails');

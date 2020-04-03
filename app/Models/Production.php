@@ -16,4 +16,10 @@ class Production extends Model
 		->where([['batch_id','=', $id],['machine_index', '=', '11'], ['created_time', '>', $starttime]]);
 		# code...
 	}
+	public function scopeGetShiftWiseData($query, $start, $end, $id)
+	{		
+		$query
+		->select(DB::raw('sum(count) as shiftwise_carton_produced'))
+		->where([['batch_id', '=', $id],['machine_index', '=', '11'], ['created_time', '>', $start], ['created_time', "<", $end]]);
+	}
 }

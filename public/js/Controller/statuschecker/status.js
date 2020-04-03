@@ -29,5 +29,11 @@ function checkstatus() {
 }
 
 
-$(document).ready(checkstatus());
+//$(document).ready(checkstatus());
+window.onload = ()=>{
+	setInterval(updateheader, 3000);
+	setInterval(produceqty, 3000);
+	setInterval(shiftqty,3000);
+
+}
 

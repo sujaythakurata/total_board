@@ -1,20 +1,17 @@
 
+function shiftwiseprod(data){
+	if(data[0]['shiftwise_bottle_produced']!=0){
+		$('#shiftProduction').text(data[0]['shiftwise_carton_produced']);
+		$('#shiftProductionB').text(data[0]['shiftwise_bottle_produced']);
+		const id = data[0]['shift_id'];
+		$('.enb').removeClass('active');
+		$('.enb').eq(id-1).addClass('active');
+	}else{
+		$('#shiftProduction').text(0);
+		$('#shiftProductionB').text(0);
+		const id = data[0]['shift_id'];
+		$('.enb').removeClass('active');
+		$('.enb').eq(id-1).addClass('active');
+	}
+}
 
-function shiftqty() {
-	const date = new Date();
-	let offset_time = date.getTimezoneOffset();
-	offset_time = offset_time == 0?0: -offset_time;
-	shiftqtyurl  = shiftqtyurl + '?q=' + offset_time;
-	console.log(offset_time);
-	console.log(shiftqtyurl);
-	$.ajax({
-		url: shiftqtyurl,
-		type: 'GET',
-		success: (data,status,xhr)=>{console.log(data);
-			console.log("yoyo")},
-		error: (xhr,status,error)=>{console.log(data);}
-	});
-}
-window.onload = ()=>{
-	shiftqty();
-}
