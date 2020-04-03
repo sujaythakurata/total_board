@@ -1,10 +1,10 @@
 
 function update(data, status, xhr) {
 	if(data !=0){
+		updatetime(data);
 		updateheader(data);
 		updateproduceqty(data);
 		shiftwiseprod(data);
-		updatetime(data);
 	}
 }
 

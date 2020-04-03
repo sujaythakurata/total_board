@@ -46,7 +46,11 @@
         const ProdQtyurl = '{{ url("api/prodstatus") }}';
         const shiftqtyurl = '{{url("api/shiftstatus")}}';
         const masterurl = '{{ url("api/masterdetails") }}';
-
+        function currtime() {
+                let curr_time = moment().format('hh:mm:ss');
+                $('#currentTime').text(curr_time);
+        }
+        setInterval(currtime, 1000);
     </script>
     <!-- <script src="js/jquery.min.js"></script> -->
     <script src="{{asset('js/jquery.js')}}"></script>
@@ -62,8 +66,8 @@
     <script src="{{asset('js/common/myforms.js')}}"></script>
     <script src="{{asset('js/Controller/header/header.js')}}"></script>
     <script src="{{asset('js/Controller/header/produceqty.js')}}"></script>
-    <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>
-        <script src="{{asset('js/Controller/header/time.js')}}"></script>
+    <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>s
+    <script src="{{asset('js/Controller/header/time.js')}}"></script>
     <script src="{{asset('js/Controller/master.js')}}"></script>
 
 

@@ -7,8 +7,6 @@ function shiftwiseprod(data){
 		$('.enb').removeClass('active');
 		$('.enb').eq(id-1).addClass('active');
 	}else{
-		$('#shiftProduction').text(0);
-		$('#shiftProductionB').text(0);
 		const id = data[0]['shift_id'];
 		$('.enb').removeClass('active');
 		$('.enb').eq(id-1).addClass('active');
