@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shift;
 use App\Models\Batch;
 use App\Models\Production;
+use App\Models\downtime;
 
 class ShiftController
 {
@@ -46,6 +47,8 @@ class ShiftController
 
 			}//end of for loop
 			$data = Production::GetShiftWiseData($start, $end, $batch_id)->get();
+			$downtime = downtime::Getdowntime($start, $end)->get();
+			$data[0]['shift_down_time'] = gmdate('H:i:s', $downtime[0]['shift_down_time']);
 			$data[0]['shiftwise_bottle_produced'] = $data[0]['shiftwise_carton_produced']*$runnig_batch[0]['no_of_bottle'];
 			$data[0]['shift_id'] = $id;
 			$data[0]['start'] = $shifdetails[$id-1]['start_time'];

@@ -19,6 +19,7 @@ class BindallServices extends ServiceProvider
         $this->app->bind('BatchController', \App\Services\BatchController::class);
         $this->app->bind('ProductionController', \App\Services\ProductionController::class);
         $this->app->bind('ShiftController', \App\Services\ShiftController::class);
+        $this->app->bind('DownTime', \App\Services\weekwisedowntime::class);
     }
 
     /**

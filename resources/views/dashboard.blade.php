@@ -67,8 +67,9 @@
     <script src="{{asset('js/Controller/header/time.js')}}"></script>
     <script src="{{asset('js/Controller/header/header.js')}}"></script>
     <script src="{{asset('js/Controller/header/produceqty.js')}}"></script>
-    <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>s
+    <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>
     <script src="{{asset('js/Controller/dashboardgraph/todayProduction.js')}}"></script>
+    <script src="{{asset('js/Controller/dashboardgraph/downtimeweek.js')}}"></script>
     <script src="{{asset('js/Controller/master.js')}}"></script>
 
 

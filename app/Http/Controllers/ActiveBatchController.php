@@ -38,6 +38,9 @@ class ActiveBatchController extends Controller
             $data[0]['shift_id'] = $shift[0]['shift_id'];
             $data[0]['start'] = $shift[0]['start'];
             $data[0]['end'] = $shift[0]['end'];
+            $data[0]['shift_down_time'] = $shift[0]['shift_down_time'];
+            $time = app()->make('DownTime')->Getdtweekwise($data);
+            $data[0]['weekwise_down_time'] = $time;
             return response($data, 200)
             ->header('Content-type', 'json');
             
