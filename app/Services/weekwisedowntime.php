@@ -10,7 +10,7 @@ use App\Models\downtime;
  */
 class weekwisedowntime
 {
-	public function Getdtweekwise($batch)
+	public function Getdtweekwise()
 	{	
 		$timezone = timezone_name_from_abbr("", (330*60), false);
 		date_default_timezone_set($timezone);

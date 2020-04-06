@@ -6,7 +6,6 @@ function update(data, status, xhr) {
 		updateproduceqty(data);
 		shiftwiseprod(data);
 		renderProductionOfBatch(data);
-		wkwisedowntime(data);
 	}
 }
 
@@ -20,7 +19,9 @@ function masterupdate() {
 		type: 'GET',
 		success: update,
 		error: error,
+		complete: ()=>{	setTimeout(()=>{masterupdate();}, 1000);}
 	});
+
 }
 
-window.onload = ()=>{ setInterval(masterupdate, 2000);}
+window.onload = ()=>{ 	setTimeout(()=>{masterupdate();}, 1000);}

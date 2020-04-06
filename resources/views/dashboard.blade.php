@@ -3,6 +3,7 @@
 <head>
 	<title>Product | Login</title>
     <meta charset="utf-8">
+    <meta http-equiv='cache-control' content='no-cache'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry">
@@ -41,11 +42,8 @@
     </div>
     <script type="text/javascript">
         const batch_id = 0;
-        const URL = '{{ url("api/batchdetails")}}';//this is the api of batchdetails
-        const STATUSURL = '{{ url("api/batchstatus")}}'; //this is the api of batchstatu
-        const ProdQtyurl = '{{ url("api/prodstatus") }}';
-        const shiftqtyurl = '{{url("api/shiftstatus")}}';
         const masterurl = '{{ url("api/masterdetails") }}';
+        const dturl = '{{ url("api/wkwisedt")}}';
         function currtime() {
                 let curr_time = moment().format('HH:mm:ss');
                 $('#currentTime').text(curr_time);
@@ -68,6 +66,7 @@
     <script src="{{asset('js/Controller/header/header.js')}}"></script>
     <script src="{{asset('js/Controller/header/produceqty.js')}}"></script>
     <script src="{{asset('js/Controller/header/shiftqty.js')}}"></script>
+    <script src="{{asset('js/Controller/dashboardgraph/charts.js')}}"></script>
     <script src="{{asset('js/Controller/dashboardgraph/todayProduction.js')}}"></script>
     <script src="{{asset('js/Controller/dashboardgraph/downtimeweek.js')}}"></script>
     <script src="{{asset('js/Controller/master.js')}}"></script>
