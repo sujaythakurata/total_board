@@ -12,47 +12,82 @@ class ShiftController
 {
 	public function Getshiftstatus($runnig_batch)
 	{
+		//get the runnint_batch details
 		$batch_id = $runnig_batch[0]['batch_id'];
+
+		///set the timezone now is India 
 		$timezone = timezone_name_from_abbr("", (330*60), false);
 		date_default_timezone_set($timezone);
-		$datetime = time();//strtotime('01:20:00');//current time
+
+
+		$datetime = strtotime(date('H:i:s'));//current time
+
+		//get shift details
 		$shifdetails = shift::GetDetails()->get();
 		$row = count($shifdetails);
-		$start = 0;
-		$end = 0;
-		$id = 0;
+
+		$shift = array();//store the curent shift start and end time
+		$id = 0;//store the shift id
+
+		$t = new \App\Services\datetimechecker();//to get the start and end date
 
 
 			//to get the shift id start time and end time
-			for ($i=0; $i < $row; $i++) { 
-				$start = strtotime($shifdetails[$i]['start_time']);
-				$end = strtotime($shifdetails[$i]['end_time']);
-				$diff = $start-$end;
-				if($datetime>$start){
-					if($datetime<$end){
-						$id = $shifdetails[$i]['shift_id'];
-						$start = date('y-m-d')." ".$shifdetails[$i]['start_time'];
-						$end = date('y-m-d')." ".$shifdetails[$i]['end_time'];
-						break;
-					}else{
-						if($diff>0){
-							$id = $shifdetails[$i]['shift_id'];
-							$start = date('y-m-d')." ".$shifdetails[$i]['start_time'];
-							$date = date('y-m-d', strtotime(date('y-m-d').' + 1 days'));
-							$end = $date." ".$shifdetails[$i]['end_time'];
+			for ($i=0; $i < $row; $i++) {
+
+					$start = $shifdetails[$i]['start_time']; //shift start time
+					$end = $shifdetails[$i]['end_time']; //shift end time
+
+					if($datetime>=strtotime($start)){
+
+						if($datetime<=strtotime($end)){
+							//if time within the current day
+							$shift = $t->check(date('y-m-d'), $start, $end);
+							$id = $shifdetails[$i]["shift_id"];
 							break;
+						}else{
+							if(strtotime($start)-strtotime($end)>0){
+								//if time within the current day
+								$shift = $t->check(date('y-m-d'), $start, $end);
+								$id = $shifdetails[$i]["shift_id"];
+								break;
+							}
 						}
+					}else{
+							if(strtotime($start)-strtotime($end)>0){
+								//time after 12 am means new day start
+								$shift = $t->checkpre(date('y-m-d'), $start, $end);
+								$id = $shifdetails[$i]["shift_id"];
+								break;
+							}
 					}
+
 				}
 
-			}//end of for loop
-			$data = Production::GetShiftWiseData($start, $end, $batch_id)->get();
-			$downtime = downtime::Getdowntime($start, $end)->get();
-			$data[0]['shift_down_time'] = gmdate('H:i:s', $downtime[0]['shift_down_time']);
-			$data[0]['shiftwise_bottle_produced'] = $data[0]['shiftwise_carton_produced']*$runnig_batch[0]['no_of_bottle'];
+
+
+			$data = Production::GetShiftWiseData($shift[0], 
+				$shift[1], 
+				$batch_id)->get();//get the this shift carton data
+
+			$downtime = downtime::Getdowntime($shift[0], 
+				$shift[1])->get();//this shift downtime
+
+			$data[0]['shift_down_time'] = gmdate('H:i:s', 
+				$downtime[0]['shift_down_time']);//dwontime convert into h:m:s
+
+			//calculate the total bottle produce in this shift
+			$data[0]['shiftwise_bottle_produced'] = 
+			$data[0]['shiftwise_carton_produced']*$runnig_batch[0]['no_of_bottle'];
+
+			//curent shift id
 			$data[0]['shift_id'] = $id;
+			//current shift start time
 			$data[0]['start'] = $shifdetails[$id-1]['start_time'];
+			//current shift end time
 			$data[0]['end'] = $shifdetails[$id-1]['end_time'];
+
+			//return the data
 			return $data;
 	}
     //

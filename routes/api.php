@@ -24,3 +24,4 @@ Route::get('prodstatus', 'ProductionController@Getprodstatus');
 Route::get('shiftstatus', 'ShiftProductionController@Getshiftstatus');
 Route::get('masterdetails', 'ActiveBatchController@Getmasterdetails');
 Route::get('wkwisedt', 'ActiveBatchController@Getwkwisedt');
+Route::get('oee', 'OEEController@GetOeeDetails');

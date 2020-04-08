@@ -1,11 +1,11 @@
 
 function update(data, status, xhr) {
 	if(data !=0){
-		updatetime(data);
-		updateheader(data);
-		updateproduceqty(data);
-		shiftwiseprod(data);
-		renderProductionOfBatch(data);
+		updatetime(data);///update batch start time and shfit down time
+		updateheader(data);///update header data
+		updateproduceqty(data);//update batch details
+		shiftwiseprod(data);//update shift wise prod data
+		renderProductionOfBatch(data);//update completion graph
 	}
 }
 
@@ -17,11 +17,15 @@ function masterupdate() {
 	$.ajax({
 		url: masterurl,
 		type: 'GET',
+		headers:{
+			'Content-Type':'json',
+			'Cache-Control': 'No-Store',
+		},
 		success: update,
 		error: error,
-		complete: ()=>{	setTimeout(()=>{masterupdate();}, 1000);}
+		complete: ()=>{setTimeout(()=>{masterupdate();}, 1000);}
 	});
 
 }
 
-window.onload = ()=>{ 	setTimeout(()=>{masterupdate();}, 1000);}
+window.onload = ()=>{setTimeout(()=>{masterupdate();}, 1000);}

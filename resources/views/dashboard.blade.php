@@ -44,6 +44,7 @@
         const batch_id = 0;
         const masterurl = '{{ url("api/masterdetails") }}';
         const dturl = '{{ url("api/wkwisedt")}}';
+        const oeehourwiseurl = '{{ url("api/oee")}}';
         function currtime() {
                 let curr_time = moment().format('HH:mm:ss');
                 $('#currentTime').text(curr_time);
@@ -70,6 +71,7 @@
     <script src="{{asset('js/Controller/dashboardgraph/todayProduction.js')}}"></script>
     <script src="{{asset('js/Controller/dashboardgraph/downtimeweek.js')}}"></script>
     <script src="{{asset('js/Controller/master.js')}}"></script>
+    <script src="{{asset('js/Controller/dashboardgraph/oeehourswise.js')}}"></script>
 
 
 

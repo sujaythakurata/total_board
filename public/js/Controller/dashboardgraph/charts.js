@@ -1,3 +1,48 @@
+
+
+///production completion graph
+const todayProduction = new Chart('todayProduction', {
+                type: 'pie',
+                data: {
+                    labels: ["Completed", "Remaining"],
+                    datasets: [{
+                        label: '',
+                        data: [],
+                        backgroundColor: [
+                            '#66cb7d',
+                            '#ffc107'
+
+                        ],
+                        borderColor: [
+                            '#ffc107',
+                            '#66cb7d'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutoutPercentage: 70,
+                    tooltips: {
+                        displayColors: true,
+                        callbacks: {
+                            mode: 'x',
+                        },
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#cccbcb'
+                        }
+                    },
+                    animation:false
+                }
+            });
+
+
+///downtime week wise chart
 const downtimeChart = new Chart('downtimeCauses', {
                 type: "bar",
                 data: {
@@ -72,5 +117,37 @@ const downtimeChart = new Chart('downtimeCauses', {
                             },
                         }]
                     }
+                }
+});
+
+///oee graph hourwise
+const cartonComplCanvas = new Chart('cartonComplCanvas', {
+                type: 'pie',
+                data: {
+                    labels: ["", ""],
+                    datasets: [{
+                        label: '',
+                        data: [],
+                        backgroundColor: [
+                            '#66cb7d',
+                            '#17a2b8'
+                        ],
+                        borderColor: [
+                            '#66cb7d',
+                            '#17a2b8'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutoutPercentage: 70,
+                    tooltips: false,
+                    legend: {
+                        position: 'bottom',
+                        labels: false
+                    },
                 }
 });

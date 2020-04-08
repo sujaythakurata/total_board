@@ -13,13 +13,27 @@ class BindallServices extends ServiceProvider
      */
     public function register()
     {
-        //
-        $this->app->bind('CurrentbatchStatus', \App\Services\CurrentbatchStatus::class);
-        $this->app->bind('ProductDetails', \App\Services\ProductDetails::class);
-        $this->app->bind('BatchController', \App\Services\BatchController::class);
-        $this->app->bind('ProductionController', \App\Services\ProductionController::class);
-        $this->app->bind('ShiftController', \App\Services\ShiftController::class);
-        $this->app->bind('DownTime', \App\Services\weekwisedowntime::class);
+        //current batch service
+        $this->app->bind('CurrentbatchStatus',
+            \App\Services\CurrentbatchStatus::class);
+        //product details
+        $this->app->bind('ProductDetails', 
+            \App\Services\ProductDetails::class);
+        //batch controller
+        $this->app->bind('BatchController', 
+            \App\Services\BatchController::class);
+        //production controller
+        $this->app->bind('ProductionController',
+            \App\Services\ProductionController::class);
+        //shift controller
+        $this->app->bind('ShiftController', 
+            \App\Services\ShiftController::class);
+        //downtime 
+        $this->app->bind('DownTime', 
+            \App\Services\weekwisedowntime::class);
+        //oee calulation
+        $this->app->bind('OEEcalculation', 
+            \App\Services\OEEcalculation::class);
     }
 
     /**

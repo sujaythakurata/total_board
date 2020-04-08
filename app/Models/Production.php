@@ -22,4 +22,15 @@ class Production extends Model
 		->select(DB::raw('sum(count) as shiftwise_carton_produced'))
 		->where([['batch_id', '=', $id],['machine_index', '=', '11'], ['created_time', '>', $start], ['created_time', "<", $end]]);
 	}
+
+	public function scopeGetcarton($query, $id, $index, $start, $end)
+	{
+		$query
+		->select(DB::raw('sum(count) as carton_produced'))
+		->where([['batch_id','=', $id],['machine_index', '=', $index], ['created_time', '>=', $end], ['created_time', '<=', $start]]);
+	}
+
+
+
+
 }

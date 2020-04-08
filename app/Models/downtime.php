@@ -16,12 +16,11 @@ class downtime extends Model
     	->select(DB::raw('sum(duration) as shift_down_time'))
     	->whereBetween('end_time', [$start,$end]);
     }
-    public function scopeGetwkwisetime($query, $start)
+    public function scopeGetdowntimemachinewise($query, $start, $end,$id)
     {
-    	$query
-    	->select(DB::raw('sum(duration) as total_time, weekday(end_time) as wkday'))
-    	->whereRaw(DB::raw("end_time>=concat(date_add('2020-04-03', interval -weekday('2020-04-03') day), ' 00:00:00') and end_time <=concat(date_add('2020-04-03', interval 6-weekday('2020-04-03') day), ' 00:00:00')"))
-    	->groupBy(DB::raw("weekday(end_time)"));
+        $query
+        ->select(DB::raw('sum(duration) as shift_down_time'))
+        ->where([['machine_index', '=', $id], ['end_time', '>=', $end], ['end_time', '<=', $start]]);
     }
 
 }
