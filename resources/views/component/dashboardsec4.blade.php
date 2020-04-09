@@ -30,7 +30,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture4.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture4.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture3.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture3.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture2.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture2.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture1.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture1.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture5.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture5.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture6.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture6.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
 
@@ -218,7 +218,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture13.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture13.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
 
@@ -250,7 +250,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture7.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture7.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -281,7 +281,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture8.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture8.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -314,7 +314,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture12.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture12.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +345,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture11.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture11.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -376,7 +376,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture10.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture10.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -407,7 +407,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="stage-card-img">
-                                                    <img src="images/Picture9.png" alt="Stage Img" class="" />
+                                                    <img src="{{asset('images/Picture9.png')}}" alt="Stage Img" class="" />
                                                 </div>
                                             </div>
                                         </div>

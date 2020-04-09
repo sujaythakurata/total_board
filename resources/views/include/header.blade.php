@@ -5,7 +5,7 @@
                 <div class="col comman-header-col-left">
                     <div class="logoname-wrap">
                         <a href="/dashboard" target="_self">
-                            <img src="images/logo.png" alt="WebApp" />
+                            <img src='{{asset("images/logo.png")}}' alt="WebApp" />
                         </a>
                     </div>
                 </div>
