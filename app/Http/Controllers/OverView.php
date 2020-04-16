@@ -41,7 +41,8 @@ class OverView extends Controller
     			"downtime"=>$shift[0]['shift_down_time'],
     			"bottel_count"=>$bottel,
     			"carton_count"=>$carton,
-    			"oee"=>$oee
+    			"oee"=>$oee,
+    			"status"=>0
     		);
 
 
