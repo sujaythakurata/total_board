@@ -27,3 +27,4 @@ Route::get('masterdetails', 'ActiveBatchController@Getmasterdetails');
 Route::get('wkwisedt', 'ActiveBatchController@Getwkwisedt');
 Route::get('oee', 'OEEController@GetOeeDetails');
 Route::post('dtreason', 'DownTimeReason@dtreason');
+Route::get('overview', 'OverView@Getdata');

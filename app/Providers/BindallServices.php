@@ -34,6 +34,10 @@ class BindallServices extends ServiceProvider
         //oee calulation
         $this->app->bind('OEEcalculation', 
             \App\Services\OEEcalculation::class);
+
+        //oee details index wise
+        $this->app->bind('oee', 
+            \App\Services\oee::class);
     }
 
     /**
