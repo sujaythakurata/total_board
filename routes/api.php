@@ -28,3 +28,12 @@ Route::get('wkwisedt', 'ActiveBatchController@Getwkwisedt');
 Route::get('oee', 'OEEController@GetOeeDetails');
 Route::post('dtreason', 'DownTimeReason@dtreason');
 Route::get('overview', 'OverView@Getdata');
+
+///use to get the mahcine master details index wise
+Route::get('/machine/{id}', "Machine@Getdetails");
+
+///use to get the weekwise shfit downtime and production
+Route::get('/machine/wsdd/{id}', "Machine@GetWSDD");
+
+//get machine wise oee
+Route::get('/machine/oee/{id}', "Machine@Getoee");

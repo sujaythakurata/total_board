@@ -27,7 +27,7 @@ class OverView extends Controller
     		->Getprodstatus($batch);
 
     		//get oee
-    		$oee = app()->make('oee')->GetOeeDetails($batch);
+    		$oee = app()->make('oee')->GetOeeDetails($batch,11);
 
 
     		///bottelprod/targetbottel cartonprod/targetcarton 
@@ -41,7 +41,7 @@ class OverView extends Controller
     			"downtime"=>$shift[0]['shift_down_time'],
     			"bottel_count"=>$bottel,
     			"carton_count"=>$carton,
-    			"oee"=>$oee,
+    			"oee"=>$oee[0]['oee'],
     			"status"=>0
     		);
 

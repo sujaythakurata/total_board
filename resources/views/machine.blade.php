@@ -46,6 +46,21 @@
         </footer>
     </div>
 </div>
+
+    <script type="text/javascript">
+        //get the machine index
+        const m_id = '{{ $id }}';
+        //api to get the machine master details
+        const M_url = "{{url('api/machine')}}"+"/"+m_id;
+        //api to get the machine 
+        const M_WSDD = "{{url('api/machine/wsdd')}}"+"/"+m_id;
+        ///batch details url
+        const time = "{{ url('api/batchdetails')}}";
+        ///api to get oee 
+        const oeeurl = "{{url('api/machine/oee')}}"+"/"+m_id;
+    </script>
+
+
     <!-- <script src="js/jquery.min.js"></script> -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/popper.js')}}"></script>
@@ -58,5 +73,17 @@
     <script src="{{asset('js/widget/chart-js-master/dist/Chart.bundle.js')}}" type="text/javascript"></script>
      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0"></script>
     <script src="{{asset('js/common/myforms.js')}}"></script>
+
+    <!---my js controllers --->
+    <script src="{{ asset('js/Controller/machine/batchtimeupdate.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/activemachine.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/machinegraph.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/machinerategraph.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/machinetodayprod.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/weekwiseshiftprod.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/weekshiftdown.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/weekwisedata.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/machineoee.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/masterupdate.js')}}"></script>
 </body>
 </html>

@@ -14,7 +14,12 @@
 			$op_target = $op_time * $line_cap;
 			$performance = $bottles_prod/$op_target;
 			$OEE = number_format($net_time * $performance*100, 2);
-			return $OEE;
+			$data = array(
+				"performance"=>number_format($performance*100,2),
+				"availability"=>number_format($net_time*100,2),
+				"oee"=>$OEE
+			);
+			return $data;
 		}
 	}
 

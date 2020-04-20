@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "login@index")->middleware('login');
 Route::post('/login', "login@loginprocess");
 Route::get('/dashboard', "Dashboard@index")->middleware("check");
-Route::get('/machine', "Machine@index")->middleware("check");
+Route::get('/machine/{id}', "Machine@index")->middleware("check");
 Route::get('/settings', "Settings@index")->middleware("check");
 
 

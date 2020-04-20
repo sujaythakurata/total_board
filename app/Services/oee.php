@@ -8,7 +8,7 @@ use App\Models\downtime;
 
 class oee
 {
-    public function GetOeeDetails($running_batch)
+    public function GetOeeDetails($running_batch, $m_id)
     {
         ///get the running batch details
     	//$running_batch = Batch::ActiveBatchDetails()->get();
@@ -34,7 +34,7 @@ class oee
         
                 ///get produced carton between every 1 hour
                 $data = Production::
-                Getcarton($running_batch[0]['batch_id'],11,$start, $end)
+                Getcarton($running_batch[0]['batch_id'],$m_id,$start, $end)
                 ->get();
         
                 //////calculte total bottel produced
@@ -44,7 +44,7 @@ class oee
                 $data[0]['total_bottles'] = $total_bottles;
         
                 ///get the downtime beteen this 1 hour
-                $dt = downtime::Getdowntimemachinewise($start, $end, 11)->get();
+                $dt = downtime::Getdowntimemachinewise($start, $end, $m_id)->get();
                 $dt = round($dt[0]['shift_down_time']/60);
         
                 $data[0]['dt'] = $dt;
@@ -61,10 +61,14 @@ class oee
                 ->calculate((int)$duration, (int)$dt, (int)$total_bottles, 38);
 
                 //store the oee
-                $data[0]['oee'] = $oee;
+                $data[0]["oee"] = $oee["oee"];
+                //store the performance
+                $data[0]['performance']= $oee["performance"];
+                //store the availability
+                $data[0]['availability']= $oee["availability"];
         
                 ///return the response
-                return $oee;}
+                return $data;}
         else{
             return 0.0;
         }

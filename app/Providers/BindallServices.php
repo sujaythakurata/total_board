@@ -34,10 +34,32 @@ class BindallServices extends ServiceProvider
         //oee calulation
         $this->app->bind('OEEcalculation', 
             \App\Services\OEEcalculation::class);
-
         //oee details index wise
         $this->app->bind('oee', 
             \App\Services\oee::class);
+        //Production details machine wise
+        $this->app->bind('MprodDetails', 
+            \App\Services\MprodDetails::class);
+        //Production details machine wise
+        $this->app->bind('MDT', 
+            \App\Services\Machine\machineproddetails::class);
+        //shiftwise prod and shiftwise downtime
+        $this->app->bind('SDT', 
+            \App\Services\Machine\machineshift::class);
+        //machine rate machine wise
+        $this->app->bind('MR', 
+            \App\Services\Machine\machinerate::class);
+        //get the today shiftewise machine production
+        $this->app->bind('TSP', 
+            \App\Services\Machine\shiftwiseprod::class); 
+        //get weekwise production and downtime
+        $this->app->bind('WSDD', 
+            \App\Services\Machine\weekwisedata::class);
+
+        //get the hour wise oee
+        $this->app->bind('oeehourwise', 
+            \App\Services\Machine\oeehourwise::class);         
+
     }
 
     /**

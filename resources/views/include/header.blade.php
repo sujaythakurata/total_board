@@ -14,7 +14,7 @@
                             <li class="list-inline-item">
                                 <div class="header-input-group input-group input-group-sm">
                                     <div class="input-group-prepend">
-                                        <h4 style="color:#17a2b8">line</h4>
+                                        <h4 style="color:#17a2b8" id="name">line</h4>
                                     </div>
                                 </div>
                             </li>_____

@@ -61,7 +61,7 @@ class OEEController extends Controller
                 ->calculate((int)$duration, (int)$dt, (int)$total_bottles, 38);
 
                 //store the oee
-                $data[0]['oee'] = $oee;
+                $data[0]['oee'] = $oee['oee'];
         
                 ///return the response
                 return $data;}

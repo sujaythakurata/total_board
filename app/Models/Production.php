@@ -31,6 +31,25 @@ class Production extends Model
 	}
 
 
+	///get production count machine wise
+	public function scopeMprod($query, $id, $starttime, $m_id)
+	{
+		$query
+		->select(DB::raw('sum(count) as production'))
+		->where([['batch_id','=', $id],['machine_index', '=', $m_id], ['created_time', '>', $starttime]]);
+		# code...
+	}
+
+
+	///get shitwise data by machine index
+	public function scopeGetShiftWiseDataM($query, $start, $end, $id, $m_id)
+	{		
+		$query
+		->select(DB::raw('sum(count) as production'))
+		->where([['batch_id','=', $id],['machine_index', '=', $m_id], ['created_time', '>=', $end], ['created_time', '<=', $start]]);
+	}
+
+
 
 
 }
