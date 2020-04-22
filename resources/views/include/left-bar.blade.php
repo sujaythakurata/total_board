@@ -37,14 +37,14 @@
             </a>
         </li>
         <li>
-            <a href="{{url('/machine/6')}}" class="machine">
+            <a href="{{url('/machine/7')}}" class="machine">
                 <span>
                     Pick & Place
                 </span>
             </a>
         </li>
         <li>
-            <a href="{{url('/machine/7')}}" class="machine">
+            <a href="{{url('/machine/6')}}" class="machine">
                 <span>
                     Carton Former
                 </span>

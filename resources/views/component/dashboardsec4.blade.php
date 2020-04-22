@@ -168,7 +168,7 @@
                                 <thead>
                                     <tr>
                                         <td colspan="2">
-                                            <a href="{{'/machine/6'}}" class="btn-white">Pick & Place</a>
+                                            <a href="{{'/machine/7'}}" class="btn-white">Pick & Place</a>
                                         </td>
                                     </tr>
                                 </thead>
@@ -198,7 +198,7 @@
                                 <thead>
                                     <tr>
                                         <td colspan="2">
-                                            <a href="{{'/machine/7'}}" class="btn-white">Carton Former</a>
+                                            <a href="{{'/machine/6'}}" class="btn-white">Carton Former</a>
                                         </td>
                                     </tr>
                                 </thead>

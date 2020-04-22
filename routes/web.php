@@ -19,4 +19,8 @@ Route::get('/dashboard', "Dashboard@index")->middleware("check");
 Route::get('/machine/{id}', "Machine@index")->middleware("check");
 Route::get('/settings', "Settings@index")->middleware("check");
 
+//submit the new from batch
+Route::post('/batch', "Batch@create")->middleware("check");
+//add a new product
+Route::post('/setting/addprod', "Settings@addproduct");
 

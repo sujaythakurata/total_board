@@ -20,10 +20,10 @@ function updatebatchtime(data, status, xhr) {
 
 function gettime() {
 	$.ajax({
+		cache:false,
 		url:time,
 		type:'GET',
 		success: updatebatchtime,
 		complete:()=>{setTimeout(gettime, 1000);}
 	})
 }
-$(document).ready(()=>{setTimeout(gettime, 1000);});

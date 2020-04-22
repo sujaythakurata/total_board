@@ -37,3 +37,21 @@ Route::get('/machine/wsdd/{id}', "Machine@GetWSDD");
 
 //get machine wise oee
 Route::get('/machine/oee/{id}', "Machine@Getoee");
+
+//get machine number of bottels
+Route::get('/setting/prod/{id}', "Settings@getdata");
+
+//handel batch update start a new batch
+Route::post('/batch/start', "Batch@batchstart");
+
+//handel batch update stop a batch
+Route::post('/batch/stop', "Batch@batchstop");
+
+//update machine speed
+Route::post('/setting/speed', "Settings@updatespeed");
+
+//get the batch details datewise
+Route::post('/setting/batchdetails', "Settings@getlist");
+
+//update the shift
+Route::post('/setting/shift', "Settings@updateshift");

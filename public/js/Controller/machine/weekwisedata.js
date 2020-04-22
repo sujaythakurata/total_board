@@ -6,6 +6,7 @@ function updateweekwise(data, status, xhr) {
 
 function weekwisedata() {
 	$.ajax({
+		cache: false,
 		url: M_WSDD,
 		type: 'GET',
 		success:updateweekwise,
@@ -14,4 +15,3 @@ function weekwisedata() {
 	});
 }
 
-$(document).ready(()=>{setTimeout(weekwisedata, 2000);});

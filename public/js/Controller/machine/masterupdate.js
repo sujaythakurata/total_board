@@ -10,7 +10,10 @@ function updatemaster(data, status, xhr) {
 		$('#name').html(data['m_full_name']);
 		$('#product').html(data['product']);
 		$('#target').html(data['target']);
-		$('#producedQty').html(data['produced']);
+		if(data['produced'])
+			$('#producedQty').html(data['produced']);
+		else
+			$('#producedQty').html(0);
 		const prod = data['shift_prod']==null?0:data['shift_prod'];
 		$('#shiftProduction').html(prod);
 		$('#shiftDownTime').html(data['shift_dt']);
@@ -23,6 +26,7 @@ function updatemaster(data, status, xhr) {
 
 function Getmasterdata() {
 	$.ajax({
+		cache:false,
 		url: M_url,
 		type:'GET',
 		success:updatemaster,
@@ -30,4 +34,3 @@ function Getmasterdata() {
 	});
 }
 
-$(document).ready(()=>{setTimeout(Getmasterdata, 1000)});

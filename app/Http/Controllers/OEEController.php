@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Production;
 use App\Models\Batch;
 use App\Models\downtime;
+use App\Models\mlinespeed;
 class OEEController extends Controller
 {
     public function GetOeeDetails()
@@ -56,9 +57,12 @@ class OEEController extends Controller
                 $data[0]['start_date'] = $batch_details[0]['batch_start_time'];
                 $data[0]['duration'] = $duration;
 
+                ///get line speed
+                $speed = mlinespeed::getspeed(11)->get();
+
                 ///calculate oee
                 $oee = app()->make('OEEcalculation')
-                ->calculate((int)$duration, (int)$dt, (int)$total_bottles, 38);
+                ->calculate((int)$duration, (int)$dt, (int)$total_bottles, $speed[0]['speed']);
 
                 //store the oee
                 $data[0]['oee'] = $oee['oee'];

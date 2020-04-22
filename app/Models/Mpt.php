@@ -16,4 +16,5 @@ class Mpt extends Model
     	->select(["m_full_name", "product"])
     	->where('m_id', $m_index);
     }
+
 }

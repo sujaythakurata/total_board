@@ -42,6 +42,30 @@
             </div>
         </footer>
     </div>
+    <script type="text/javascript">
+            
+        //product info
+        var url = "{{url('/api/setting/prod')}}";
+        //batchform url
+        const batchform = "{{ url('/batch')}}";
+        
+        //batch start url
+        var batchstart_url = "{{ url('/api/batch/start')}}";
+
+        //batch stop url
+        var batchstop_url = "{{ url('/api/batch/stop')}}";
+
+        //speed url
+        const speedurl = "{{url('api/setting/speed')}}";
+        //batch details api
+        const batch = "{{ url('api/setting/batchdetails')}}";
+        //shift update
+        const shift = "{{url('api/setting/shift')}}";
+        //head
+        const head = "{{url('api/batchdetails')}}";
+    </script>
+
+
     <!-- <script src="js/jquery.min.js"></script> -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/popper.js')}}"></script>
@@ -54,5 +78,14 @@
     <script src="{{asset('js/widget/chart-js-master/dist/Chart.bundle.js')}}" type="text/javascript"></script>
      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0"></script>
     <script src="{{asset('js/common/myforms.js')}}"></script>
+
+    <!--- this is my js--->
+    <script src="{{asset('js/Controller/setting/calbottle.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/createbatch.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/batchhandel.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/updatespeed.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/shiftupdate.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/handelsearch.js')}}"></script>
+    <script src="{{asset('js/Controller/setting/head.js')}}"></script>
 </body>
 </html>

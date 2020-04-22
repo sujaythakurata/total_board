@@ -58,8 +58,19 @@ class BindallServices extends ServiceProvider
 
         //get the hour wise oee
         $this->app->bind('oeehourwise', 
-            \App\Services\Machine\oeehourwise::class);         
-
+            \App\Services\Machine\oeehourwise::class);
+        //bind the input calculate service
+        $this->app->bind('calculate', 
+            \App\Services\setting\calculate::class);
+        //bind the input calculate service
+        $this->app->bind('createbatch', 
+            \App\Services\setting\createbatch::class);                 
+        //start a new batch
+        $this->app->bind('batchstart', 
+            \App\Services\setting\batchstart::class); 
+        //stop a batch
+        $this->app->bind('batchstop', 
+            \App\Services\setting\batchstop::class); 
     }
 
     /**

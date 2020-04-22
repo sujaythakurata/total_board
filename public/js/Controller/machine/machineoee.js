@@ -16,10 +16,10 @@ function updateoee(data, status, xhr) {
 
 function getoee() {
 	$.ajax({
+		cache:false,
 		url:oeeurl,
 		type:'GET',
 		success:updateoee,
 		complete:()=>{setTimeout(getoee,5000)}
 	});
 }
-$(document).ready(()=>{setTimeout(getoee, 1000);});

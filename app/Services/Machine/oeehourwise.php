@@ -5,6 +5,7 @@ namespace App\Services\Machine;
 use App\Models\Production;
 use App\Models\Batch;
 use App\Models\downtime;
+use App\Models\mlinespeed;
 
 class oeehourwise
 {
@@ -42,9 +43,12 @@ class oeehourwise
         $data[0]['start_date'] = $running_batch[0]['batch_start_time'];
         $data[0]['duration'] = $duration;
 
+        //line speed
+        $speed = mlinespeed::getspeed($m_id)->get();
+
                 ///calculate oee
         $oee = app()->make('OEEcalculation')
-            ->calculate((int)$duration, (int)$dt, (int)$total_bottles, 38);
+            ->calculate((int)$duration, (int)$dt, (int)$total_bottles, $speed[0]['speed']);
 
         //store the oee
         $data[0]["oee"] = $oee["oee"];

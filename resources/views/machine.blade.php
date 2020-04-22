@@ -3,6 +3,7 @@
 <head>
 	<title>machine</title>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="3600" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry">
@@ -58,6 +59,7 @@
         const time = "{{ url('api/batchdetails')}}";
         ///api to get oee 
         const oeeurl = "{{url('api/machine/oee')}}"+"/"+m_id;
+
     </script>
 
 
@@ -85,5 +87,6 @@
     <script src="{{ asset('js/Controller/machine/weekwisedata.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/machineoee.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/masterupdate.js')}}"></script>
+    <script src="{{ asset('js/Controller/machine/allupdate.js')}}"></script>
 </body>
 </html>
