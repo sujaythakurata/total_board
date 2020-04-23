@@ -37,6 +37,9 @@ class BindallServices extends ServiceProvider
         //oee details index wise
         $this->app->bind('oee', 
             \App\Services\oee::class);
+        //get shift info
+        $this->app->bind('shiftinfo', 
+            \App\Services\shiftinfo::class);
         //Production details machine wise
         $this->app->bind('MprodDetails', 
             \App\Services\MprodDetails::class);

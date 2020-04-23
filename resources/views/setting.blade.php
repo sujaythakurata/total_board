@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Product | Login</title>
+	<title>Setting</title>
+    <link rel="icon" href="{{asset('images/logo.ico')}}" type="image/x-icon"/>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +27,11 @@
 <body>
 	@include('include/header')
     <section class="main-content-wrap">
+        <div class="loader-page">
+            <div class="loading-page-inn+er">
+                <i class="fa fa-circle-o-notch fa-pulse fa-pulse-ani"></i>
+            </div>
+        </div>
         <div class="container-fluid">
         	@include('component/settings/setsec1')
             <br />
@@ -81,7 +87,6 @@
 
     <!--- this is my js--->
     <script src="{{asset('js/Controller/setting/calbottle.js')}}"></script>
-    <script src="{{asset('js/Controller/setting/createbatch.js')}}"></script>
     <script src="{{asset('js/Controller/setting/batchhandel.js')}}"></script>
     <script src="{{asset('js/Controller/setting/updatespeed.js')}}"></script>
     <script src="{{asset('js/Controller/setting/shiftupdate.js')}}"></script>

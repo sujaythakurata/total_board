@@ -28,4 +28,3 @@ function masterupdate() {
 
 }
 
-window.onload = ()=>{setTimeout(()=>{masterupdate();}, 1000);}

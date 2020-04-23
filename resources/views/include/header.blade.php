@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item list-inline-item nav-notification">
-                            <a class="nav-link" href="#" data-toggle="tooltip" title="Log Out">
+                            <a class="nav-link" href="{{url('/logout')}}" data-toggle="tooltip" title="Log Out">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                             </a>
                         </li>

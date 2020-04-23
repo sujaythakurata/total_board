@@ -56,7 +56,8 @@ class oee
                 $data[0]['duration'] = $duration;
 
                 //get line speed
-                $speed = mlinespeed::getspeed($m_id);
+                $speed = mlinespeed::getspeed($m_id)->get();
+                
 
                 ///calculate oee
                 $oee = app()->make('OEEcalculation')

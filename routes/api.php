@@ -25,8 +25,14 @@ Route::get('prodstatus', 'ProductionController@Getprodstatus');
 Route::get('shiftstatus', 'ShiftProductionController@Getshiftstatus');
 Route::get('masterdetails', 'ActiveBatchController@Getmasterdetails');
 Route::get('wkwisedt', 'ActiveBatchController@Getwkwisedt');
+
+//get oeee
 Route::get('oee', 'OEEController@GetOeeDetails');
+
+//submit dtreason
 Route::post('dtreason', 'DownTimeReason@dtreason');
+
+//for app get overview data
 Route::get('overview', 'OverView@Getdata');
 
 ///use to get the mahcine master details index wise
@@ -55,3 +61,19 @@ Route::post('/setting/batchdetails', "Settings@getlist");
 
 //update the shift
 Route::post('/setting/shift', "Settings@updateshift");
+
+//reason handeler machine wise
+Route::get('/reason/{id}', "reasonhandeler@handel");
+//dashboard top reason
+Route::get('/topreason', "reasonhandeler@topreason");
+
+//get machine wise downtime percentage shiftwise
+Route::get('/shiftrea', "reasonhandeler@shiftreason");
+
+///get all machine data
+Route::get('/machinedata', "machinesnippet@getdata");
+
+///get all machine downtime
+Route::get('/machinedata/dt', "machinesnippet@getdowntime");
+///get all machine oee
+Route::get('/machinedata/oee', "machinesnippet@getoee");

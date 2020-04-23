@@ -8,6 +8,7 @@ function updatemaster(data, status, xhr) {
 		$('.enb').eq(data["shift_id"]-1).addClass('active');
 		$("#pdname").html(data["product_name"]);
 		$('#name').html(data['m_full_name']);
+		$('#title').html(data['m_full_name']);
 		$('#product').html(data['product']);
 		$('#target').html(data['target']);
 		if(data['produced'])

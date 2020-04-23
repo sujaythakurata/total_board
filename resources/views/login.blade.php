@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Product | Login</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +37,11 @@
                         <div class="col-md-6 col-lg-5 col-xl-4">
                             <div class="login-form">
                                 <div class="main-div">
+                                    @if($status)
+                                    <div class="alert alert-success">
+                                        {{$status}}
+                                    </div>
+                                    @endif
                                     @if (session('data'))
                                         <div class="alert alert-danger">
                                             {{ session('data') }}
@@ -53,9 +58,8 @@
                                         <h2>Login</h2>
                                         <p>Please enter email ID and password</p>
                                     </div>
-                                    <form id="userLogin" method="post" action="/login">
+                                    <form id="userLogin" method="post" action='{{url("/login")}}'>
                                         @csrf
-
                                         <div class="form-group c-form-group">
                                             <label>Employee Code</label>
                                             <div class="form-control-wrap">

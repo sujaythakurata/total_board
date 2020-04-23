@@ -6,7 +6,6 @@ function machinetodayprod(data){
 		if(prod)
 			 rate = (prod/data["target"]).toFixed(2);
 		else{
-			console.log(data['target']);
 			prod = 0;
 		}
 		$("#production-rate-txt").html(rate);

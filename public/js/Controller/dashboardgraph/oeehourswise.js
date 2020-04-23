@@ -17,4 +17,3 @@ function oeehourwise(argument) {
 
 	});
 }
-$(document).ready(()=>{setTimeout(oeehourwise, 1000)});

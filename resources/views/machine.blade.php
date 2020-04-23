@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>machine</title>
+	<title id="title">machine</title>
+    <link rel="icon" href="{{asset('images/logo.ico')}}" type="image/x-icon"/>
     <meta charset="utf-8">
     <meta http-equiv="refresh" content="3600" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -59,6 +60,8 @@
         const time = "{{ url('api/batchdetails')}}";
         ///api to get oee 
         const oeeurl = "{{url('api/machine/oee')}}"+"/"+m_id;
+        //reason
+        const reason = "{{url('api/reason')}}"+"/"+m_id;
 
     </script>
 
@@ -87,6 +90,7 @@
     <script src="{{ asset('js/Controller/machine/weekwisedata.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/machineoee.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/masterupdate.js')}}"></script>
+    <script src="{{ asset('js/Controller/topreason.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/allupdate.js')}}"></script>
 </body>
 </html>

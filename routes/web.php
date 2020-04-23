@@ -24,3 +24,6 @@ Route::post('/batch', "Batch@create")->middleware("check");
 //add a new product
 Route::post('/setting/addprod', "Settings@addproduct");
 
+//logout the page
+Route::get('/logout', "logout@logout");
+

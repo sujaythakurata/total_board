@@ -18,6 +18,3 @@ function updatedowntime() {
 
 }
 
-$(document).ready(()=>{
-        setTimeout(()=>{updatedowntime();}, 3000);
-});

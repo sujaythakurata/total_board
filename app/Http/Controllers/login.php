@@ -9,8 +9,9 @@ class login extends Controller
 {
     
     //return view always  
-    public function index(){
-    	return view('login');
+    public function index(Request $req){
+      $status = $req->session()->get('msg');
+    	return view('login', ['status'=>$status]);
     }
 
 
