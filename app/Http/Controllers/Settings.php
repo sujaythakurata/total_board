@@ -13,7 +13,7 @@ class Settings extends Controller
 {
     public function index(){
     	$list = Productdetails::getlist()->get();
-        $data = Batch::getcurrentbatch()->get();
+        $data = Batch::ActiveBatchDetails()->get();
         $machine = mlinespeed::getlist()->get();
         $shift = Shift::all();
     	return view('setting', [

@@ -42,13 +42,13 @@ class shiftinfo
 
 						if($datetime<=strtotime($end)){
 							//if time within the current day
-							$shift = $t->check(date('2020-03-23'), $start, $end);
+							$shift = $t->check(date('y-m-d'), $start, $end);
 							$id = $shifdetails[$i]["shift_id"];
 							break;
 						}else{
 							if(strtotime($start)-strtotime($end)>0){
 								//if time within the current day
-								$shift = $t->check(date('2020-03-23'), $start, $end);
+								$shift = $t->check(date('y-m-d'), $start, $end);
 								$id = $shifdetails[$i]["shift_id"];
 								break;
 							}
@@ -56,7 +56,7 @@ class shiftinfo
 					}else{
 							if(strtotime($start)-strtotime($end)>0){
 								//time after 12 am means new day start
-								$shift = $t->checkpre(date('2020-03-23'), $start, $end);
+								$shift = $t->checkpre(date('y-m-d'), $start, $end);
 								$id = $shifdetails[$i]["shift_id"];
 								break;
 							}

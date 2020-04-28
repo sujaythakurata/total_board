@@ -21,7 +21,7 @@ class reasonhandeler extends Controller
              date_default_timezone_set($timezone);
 
             //start time
-			$start = "2020-03-22 18:07:41"; //$batch[0]['batch_start_time'];
+			$start = $batch[0]['batch_start_time'];
 
 			//end time
     		$end = date('y-m-d H:i:s');
@@ -51,7 +51,7 @@ class reasonhandeler extends Controller
              date_default_timezone_set($timezone);
 
             //start time
-			$start = "2020-03-22 18:07:41"; //$batch[0]['batch_start_time'];
+			$start = $batch[0]['batch_start_time'];
 
 			//end time
     		$end = date('y-m-d H:i:s');
