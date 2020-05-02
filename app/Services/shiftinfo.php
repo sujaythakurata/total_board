@@ -15,8 +15,8 @@ class shiftinfo
 		//get the runnint_batch details
 		$batch_id = $runnig_batch[0]['batch_id'];
 
-		///set the timezone now is India 
-		$timezone = timezone_name_from_abbr("", (330*60), false);
+		///set the timezone now is dubai 
+		$timezone = timezone_name_from_abbr("", (240*60), false);
 		date_default_timezone_set($timezone);
 
 

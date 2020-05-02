@@ -7,8 +7,8 @@
  	Class machinerate{
  		public function Getrate($batch, $m_id)
  		{
-			///set default time zone now is india
-            $timezone = timezone_name_from_abbr("", (330*60), false);
+			///set default time zone now is dubai
+            $timezone = timezone_name_from_abbr("", (240*60), false);
             date_default_timezone_set($timezone);
 
             ///the current time means the start time

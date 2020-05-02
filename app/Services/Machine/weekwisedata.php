@@ -15,7 +15,7 @@ class weekwisedata
 	{	
 
 		///set the timezone now it is india
-		$timezone = timezone_name_from_abbr("", (330*60), false);
+		$timezone = timezone_name_from_abbr("", (240*60), false);
 		date_default_timezone_set($timezone);
 		$shift_time = Shift::GetDetails()->get();
 

@@ -15,7 +15,7 @@ class ShiftProductionController extends Controller
 		$runnig_batch = Batch::ActiveBatchDetails()->get();
 		if(count($runnig_batch)>0){
 			$batch_id = $runnig_batch[0]['batch_id'];
-			$timezone = timezone_name_from_abbr("", (330*60), false);
+			$timezone = timezone_name_from_abbr("", (240*60), false);
 			date_default_timezone_set($timezone);
 			$datetime = strtotime('01:20:00');//current time
 			$shifdetails = shift::GetDetails()->get();

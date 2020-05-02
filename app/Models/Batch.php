@@ -57,7 +57,7 @@ class Batch extends Model
     		"product_list.no_of_bottle",
     		"product_list.liters"
     	)
-    	->whereRaw('batch_details.created_time>=curdate()');
+    	->whereRaw('batch_details.created_time>=curdate() and batch_details.batch_status !=1');
     }
 
 
@@ -66,7 +66,7 @@ class Batch extends Model
     public function scopestartbatch($query, $batch_no)
     {
     	//set default time zone now is IST
-    	$timezone = timezone_name_from_abbr("", (330*60), false);
+    	$timezone = timezone_name_from_abbr("", (240*60), false);
 		date_default_timezone_set($timezone);
     	$query
     	->where("batch_no", $batch_no)

@@ -14,7 +14,7 @@ class oee
 
         if(count($running_batch)>0)
         {///set default time zone now is india
-                $timezone = timezone_name_from_abbr("", (330*60), false);
+                $timezone = timezone_name_from_abbr("", (4*60*60), false);
                 date_default_timezone_set($timezone);
         
                 ///the current time
