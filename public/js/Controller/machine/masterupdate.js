@@ -20,6 +20,7 @@ function updatemaster(data, status, xhr) {
 		$('#shiftDownTime').html(data['shift_dt']);
 		machinerate(data);
 		machinetodayprod(data);
+		todayshift(data);
 	}else{
 
 	}

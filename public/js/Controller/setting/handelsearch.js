@@ -1,6 +1,5 @@
 
 function updatebatchtable(data, status, xhr) {
-	console.log(data);
 	$("#batch_row").siblings().empty();
 	const len = data.length;
 	for(let i = len-1;i>-1;i--){

@@ -62,7 +62,7 @@ class OEEController extends Controller
 
                 ///calculate oee
                 $oee = app()->make('OEEcalculation')
-                ->calculate((int)$duration, (int)$dt, (int)$total_bottles, $speed[0]['speed']);
+                ->calculate((int)$duration, (int)$dt, (int)$data[0]['carton_produced'], $speed[0]['speed']);
 
                 //store the oee
                 $data[0]['oee'] = $oee['oee'];
