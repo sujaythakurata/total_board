@@ -26,7 +26,7 @@ class oeehourwise
         
         //////calculte total bottel produced
         $total_bottles = 
-            $data[0]['carton_produced']*$running_batch[0]['no_of_bottle'];
+            $data[0]['carton_produced'];//*$running_batch[0]['no_of_bottle'];
 
         $data[0]['total_bottles'] = $total_bottles;
         

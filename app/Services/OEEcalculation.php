@@ -24,6 +24,9 @@
 			$data = array(
 				"performance"=>number_format($performance*100,2),
 				"availability"=>number_format($net_time*100,2),
+				"operating_time"=>$op_time,
+				"available_time"=>$avl_time,
+				"operating_target"=>$op_target,
 				"oee"=>$OEE
 			);
 			return $data;

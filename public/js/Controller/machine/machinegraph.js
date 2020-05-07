@@ -134,7 +134,7 @@ week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satur
 const week_shift_prod = new Chart('shiftWiseDailyProduction', {
     type: "bar",
     data: {
-        labels: week,
+        labels: [],
         datasets: [{
                 label: 'Shift 1',
                 backgroundColor: "#bdfba3",
@@ -217,7 +217,7 @@ week_shift_prod.height = 200;
 const week_shift_down = new Chart('downtimeChart', {
     type: "bar",
     data: {
-        labels: week,
+        labels: [],
         datasets: [{
                 label: 'Shift 1',
                 backgroundColor: "#bdfba3",

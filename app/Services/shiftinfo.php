@@ -64,7 +64,7 @@ class shiftinfo
 
 				}
 
-
+		if(count($shift)>0){
 			$downtime = downtime::Getdowntime($shift[0], 
 				$shift[1])->get();//this shift downtime
 
@@ -76,6 +76,19 @@ class shiftinfo
 
 			//return the data
 			return $data;
+		}
+
+		else{
+
+			$data = array(array(
+				"downtime"=>0,
+				"start"=>'00:00:00',
+				"end"=>'00:00:00'
+			));
+
+
+			return $data;
+		}
 	}
     //
 }

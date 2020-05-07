@@ -77,3 +77,13 @@ Route::get('/machinedata', "machinesnippet@getdata");
 Route::get('/machinedata/dt', "machinesnippet@getdowntime");
 ///get all machine oee
 Route::get('/machinedata/oee', "machinesnippet@getoee");
+
+//get downtime alert
+Route::get("/dtalert", "alerthandler@handel");
+
+//get indivual machine oee
+Route::get("/m/{id}", "Machine@machinoee");
+//get csm machine oee
+Route::get("csm", "Machine@csm");
+//get indivual machine oee
+Route::get("/shiftm/oee/{id}", "OEEController@shift");

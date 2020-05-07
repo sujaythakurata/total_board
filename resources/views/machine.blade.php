@@ -89,6 +89,7 @@
     <script src="{{ asset('js/Controller/machine/weekshiftdown.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/weekwisedata.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/machineoee.js')}}"></script>
+        <script src="{{ asset('js/Controller/machine/todayshift.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/masterupdate.js')}}"></script>
     <script src="{{ asset('js/Controller/topreason.js')}}"></script>
     <script src="{{ asset('js/Controller/machine/allupdate.js')}}"></script>

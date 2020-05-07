@@ -46,7 +46,7 @@ const todayProduction = new Chart('todayProduction', {
 const downtimeChart = new Chart('downtimeCauses', {
                 type: "bar",
                 data: {
-                    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    labels: [],
                     datasets: [{
                             label: 'Shift 1',
                             backgroundColor: "#bdfba3",

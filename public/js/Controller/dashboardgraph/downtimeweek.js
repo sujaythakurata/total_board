@@ -1,8 +1,11 @@
 
 function wkwisedowntime(data, staus, xhr) {
-        downtimeChart.data.datasets[0].data = data[0];
-        downtimeChart.data.datasets[1].data = data[1];
-        downtimeChart.data.datasets[2].data = data[2];
+
+        //set the labels
+        downtimeChart.data.labels = data[1];
+        for(let i = 0;i<data[0].length; i++){
+        downtimeChart.data.datasets[i].data = data[0][i];
+        }
         downtimeChart.update();
 }
 

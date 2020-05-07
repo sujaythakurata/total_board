@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 ///import batch model
 use App\Models\Batch;
 use App\Models\Mpt;
+use App\Models\Production;
+use App\Models\downtime;
+use App\Models\mlinespeed;
+use App\Models\Shift;
 
 class Machine extends Controller
 {
@@ -137,6 +141,116 @@ class Machine extends Controller
         }else{
             return 0;
         }
+    }
+
+    public function machineoee($id)
+    {
+        //get running batch
+        $batch =  Batch::ActiveBatchDetails()->get();
+
+        if(count($batch)>0){
+
+            ///set default time zone now is india
+            $timezone = timezone_name_from_abbr("", (4*60*60), false);
+            date_default_timezone_set($timezone); 
+
+            ///the current time
+            $start = date('y-m-d H:i:s');
+    
+            ///get the end time 1 hour ago
+            $end = date('y-m-d H:i:s', strtotime($start)-3600);
+
+            //duration here hours wise
+            $duration = 60;
+    
+            if(strtotime($end)<strtotime($batch[0]['batch_start_time'])){
+                $end = $batch[0]['batch_start_time'];
+                $duration = round((strtotime($start) - strtotime($end))/60);
+            }
+            ///get produced carton between every 1 hour
+            $data = Production::
+            Getcarton($batch[0]['batch_id'],$id,$start, $end)
+            ->get();
+    
+            //////calculte total bottel produced
+            $total_bottles = 
+            $data[0]['carton_produced'];//*$running_batch[0]['no_of_bottle'];
+
+            $data[0]['count'] = $total_bottles;
+    
+            ///get the downtime beteen this 1 hour
+            $dt = downtime::Getdowntimemachinewise($start, $end, $id)->get();
+            $dt = round($dt[0]['shift_down_time']/60);
+    
+            $data[0]['dt'] = $dt;
+    
+            //store start date and end date
+    
+            $data[0]['start'] = $start;
+            $data[0]['end'] = $end;
+            $data[0]['start_date'] = $batch[0]['batch_start_time'];
+            $data[0]['duration'] = $duration;
+
+            //get line speed
+            $speed = mlinespeed::getspeed($id)->get();
+
+            ///calculate oee
+            $oee = app()->make('OEEcalculation')
+            ->calculate((int)$duration, (int)$dt, (int)$total_bottles, $speed[0]['speed']);
+            
+            if($total_bottles ==Null)
+                $total_bottles = 0;
+
+            $res = array(
+                "availability"=>$oee["availability"],
+                "performance"=>$oee["performance"],
+                "operation_time"=>$oee["operating_time"],
+                'available_time'=>$oee['available_time'],
+                "downtime"=>$dt,
+                "operation_target"=>$oee["operating_target"],
+                "machine_count"=>$total_bottles,
+                "oee"=>$oee["oee"]
+
+            );
+    
+            ///return the response
+            print_r($res);
+
+        }else{
+            return 0;
+        }
+
+    }
+
+
+    public function csm()
+    {
+        ///get the running batch details
+        $batch_details = Batch::ActiveBatchDetails()->get();
+
+        if(count($batch_details)>0)
+        {
+            $oee = new \App\Http\Controllers\OEEController;
+            $oee = $oee->GetOeeDetails();
+                $res = array(
+                    "availability"=>$oee[0]["availability"],
+                    "performance"=>$oee[0]["performance"],
+                    "operation_time"=>$oee[0]["operation_time"],
+                    'available_time'=>$oee[0]['available_time'],
+                    "downtime"=>$oee[0]['downtime'],
+                    "operation_target"=>$oee[0]["operation_target"],
+                    "machine_count"=>$oee[0]['carton_produced'],
+                    "oee"=>$oee[0]["oee"]
+
+                );
+        
+                ///return the response
+                print_r($res);
+            }
+        else{
+            return response(0, 200);
+        }
+
     }
 
 

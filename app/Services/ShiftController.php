@@ -65,6 +65,7 @@ class ShiftController
 				}
 
 
+		if(count($shift)>0){
 
 			$data = Production::GetShiftWiseData($shift[0], 
 				$shift[1], 
@@ -89,6 +90,20 @@ class ShiftController
 
 			//return the data
 			return $data;
+		}
+
+		else{
+			$data = array(array(
+				"shiftwise_carton_produced"=>0,
+				"shiftwise_bottle_produced"=>0,
+				'shift_id'=>-5,
+				'start'=>'00:00:00',
+				'end'=>'00:00:00',
+				'shift_down_time'=>'00:00:00'
+			));
+			return $data;
+		}
+
 	}
     //
 }

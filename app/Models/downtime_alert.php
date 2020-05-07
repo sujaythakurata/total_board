@@ -10,9 +10,13 @@ class downtime_alert extends Model
     protected $table = 'downtime_alert';
     public $timestamps = false;
 
-    public function scopeupdatealert($query, $m_index, $cause, $sc)
+    public function scopeupdatealert($query, $id,$m_index, $cause, $sc)
     {
-        DB::update('update downtime_alert set stop_reason=?, sc=? where machine_index=? order by start_time desc limit 1',[$cause, $sc, $m_index]);
+        $query
+        ->where([['downtime_alert_id', "=", $id],
+            ['machine_index', "=", $m_index]])
+        ->limit(1)
+        ->update(['stop_reason'=>$cause], ['sc'=>$sc]);
     }
 
     //get reason
@@ -45,6 +49,13 @@ class downtime_alert extends Model
         ])
         ->groupBy('stop_reason')
         ->orderBy('total_dt', 'desc');
+    }
+
+    public function scopegetalert($query)
+    {
+        $query
+        ->select('downtime_alert_id','start_time', 'machine_index', 'device_id')
+        ->where('stop_reason', "=", '');
     }
 
 

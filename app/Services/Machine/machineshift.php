@@ -66,12 +66,13 @@ class machineshift
 
 
 
-			$data = Production::GetShiftWiseDataM($shift[0], 
-				$shift[1], 
+		if(count($shift)>0){
+			$data = Production::GetShiftWiseDataM($shift[1], 
+				$shift[0], 
 				$batch_id, $m_id)->get();//get the this shift production data machine wise
 
-			$downtime = downtime::Getdowntimemachinewise($shift[0], 
-				$shift[1], $m_id)->get();//this shift downtime; machine wise
+			$downtime = downtime::Getdowntimemachinewise($shift[1], 
+				$shift[0], $m_id)->get();//this shift downtime; machine wise
 
 			$data[0]['shift_down_time'] = gmdate('H:i:s', 
 				$downtime[0]['shift_down_time']);//dwontime convert into h:m:s
@@ -85,6 +86,20 @@ class machineshift
 
 			//return the data
 			return $data;
+		}else{
+			$data = array(array(
+
+				'production'=>0,
+				'shift_down_time'=>"00:00:00",
+				'shift_id'=>-5,
+				'start'=>"00:00:00",
+				'end'=>"00:00:00"
+
+			));
+			return $data;
+		}
+
+
 	}
     //
 }

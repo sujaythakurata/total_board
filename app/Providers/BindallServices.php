@@ -74,6 +74,12 @@ class BindallServices extends ServiceProvider
         //stop a batch
         $this->app->bind('batchstop', 
             \App\Services\setting\batchstop::class); 
+        //get weekday
+        $this->app->bind('getweekday', 
+            \App\Services\getweekday::class);
+        //get shift wise oee
+        $this->app->bind('Shiftoee', 
+            \App\Services\Shiftoee::class);
     }
 
     /**

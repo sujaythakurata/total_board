@@ -66,7 +66,7 @@ class machinesnippet extends Controller
         if(count($batch)>0){
         	$oee = array();
         	for($i=1;$i<=13;$i++){
-        		array_push($oee,app()->make('oee')->GetOeeDetails($batch, 1)[0]['oee']);
+        		array_push($oee,app()->make('Shiftoee')->GetOeeDetails($batch, $i)[0]['oee']);
         	}
 
             return Response($oee, 200)
